@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("vioku-btn-generateurl").addEventListener("click", function () {
-    var generateurl = document.getElementById("generateurl").value,
-      generatelink = document.getElementById("generatelink"),
-      generateloading = document.getElementById("generateloading"),
-      resulturl = document.getElementById("resulturl");
-    if (generateurl === "") {
-      document.getElementById("generateurl").focus();
+  document.getElementById("vioku-btn-geturl").addEventListener("click", function () {
+    var vioku_input_url = document.getElementById("vioku-input-url").value,
+      vioku_loading_url = document.getElementById("vioku_loading_url"),
+      vioku_result_url = document.getElementById("vioku-result-url");
+    if (vioku_input_url === "") {
+      document.getElementById("vioku-input-url").focus();
       return false;
     }
-    generateloading.classList.remove("hidden");
-    generatelink.classList.add("hidden");
+    vioku_loading_url.classList.remove("hidden");
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://lanjutdroid.blogspot.com//feeds/posts/summary?alt=json-in-script", true);
+    xhr.open("GET", "/feeds/posts/summary?alt=json-in-script", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4) {
@@ -32,15 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
               links[i] = link;
               var randindex = Math.floor(Math.random() * links.length);
             }
-            resultgenerate = links[randindex] + "#?o=" + aesCrypto.encrypt(convertstr(generateurl), convertstr("root"));
-            generateloading.classList.add("hidden");
-            generatelink.classList.remove("hidden");
-            resulturl.value = resultgenerate;
+            resultgenerate = links[randindex] + "#?o=" + aesCrypto.encrypt(cleanWhiteSpace(vioku_input_url), cleanWhiteSpace("root"));
+            vioku_loading_url.classList.add("hidden");
+
+            vioku_result_url.value = resultgenerate;
           } else {
-            resulturl.value = "No result!";
+            vioku_result_url.value = "No result!";
           }
         } else {
-          resulturl.value = "Error loading feed!";
+          vioku_result_url.value = "Error loading feed!";
         }
       }
     };

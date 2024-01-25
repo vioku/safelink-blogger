@@ -2,16 +2,16 @@
 //   exceptionurl: "facebook.com,google.com,link-blog-utama.com",
 //   path: "#?o=",
 // };
-function extractDomain(url) {
+function vioku_extractDomain(url) {
   return url.split(/[:/?]/)[2] || url.split("/")[2] || url.split("/")[0];
 }
-function exception() {
+function vioku_exception() {
   return setting.exceptionurl.split(",");
 }
 setting.exceptionurl = setting.exceptionurl ? setting.exceptionurl + "," + window.location.href : window.location.href;
-var exception = exception();
+var exception = vioku_exception();
 
-function showurl(datajson) {
+function vioku_article_url(datajson) {
   var links = [];
   var allarticle = datajson.feed.openSearch$totalResults.$t;
   for (var i = 0; i < allarticle; i++) {
@@ -31,8 +31,8 @@ function showurl(datajson) {
     var no = 0;
     var checklink, checkexception;
     while (check === false && no < exceptionlength) {
-      checklink = extractDomain(linktag[i].href);
-      checkexception = extractDomain(exception[no]);
+      checklink = vioku_extractDomain(linktag[i].href);
+      checkexception = vioku_extractDomain(exception[no]);
       if (checklink.includes(checkexception)) {
         check = true;
       }
