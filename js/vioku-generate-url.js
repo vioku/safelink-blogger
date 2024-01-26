@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
               links[i] = link;
               var randindex = Math.floor(Math.random() * links.length);
             }
-            resultgenerate = links[randindex] + "#?o=" + aesCrypto.encrypt(cleanWhiteSpace(vioku_input_url), cleanWhiteSpace("root"));
+            resultgenerate = links[randindex] + "#?vioku-go=" + aesCrypto.encrypt(cleanWhiteSpace(vioku_input_url), cleanWhiteSpace("root"));
             vioku_loading_url.classList.add("hidden");
 
             vioku_result_url.value = resultgenerate;

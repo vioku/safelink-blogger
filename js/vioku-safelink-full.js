@@ -1,6 +1,6 @@
 // var setting = {
 //   exceptionurl: "facebook.com,google.com,link-blog-utama.com",
-//   path: "#?o=",
+//   path: "#?vioku-go=",
 // };
 function vioku_extractDomain(url) {
   return url.split(/[:/?]/)[2] || url.split("/")[2] || url.split("/")[0];
