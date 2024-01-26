@@ -1,5 +1,5 @@
 // this setting for full page script
-var setting = {
+var vioku_setting_full = {
   exceptionurl: "facebook.com,google.com",
 };
 
