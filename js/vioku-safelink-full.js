@@ -36,7 +36,7 @@ function vioku_article_url(datajson) {
     }
     if (!check) {
       var randindex = Math.floor(Math.random() * links.length);
-      linktag[i].href = links[randindex] + "#?vioku-go=" + aesCrypto.encrypt(cleanWhiteSpace(linktag[i].href), cleanWhiteSpace("root"));
+      linktag[i].href = links[randindex] + "#?vioku-go=" + aesCrypto.encrypt(cleanWhiteSpace(linktag[i].href), cleanWhiteSpace("vioku"));
       linktag[i].rel = "nofollow";
       linktag[i].target = "_blank";
     }

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   vioku_go2.addEventListener("click", function () {
-    var realurl = aesCrypto.decrypt(cleanWhiteSpace(vioku_extractURLparams("vioku-go")), cleanWhiteSpace("root"));
+    var realurl = aesCrypto.decrypt(cleanWhiteSpace(vioku_extractURLparams("vioku-go")), cleanWhiteSpace("vioku"));
     window.location.href = realurl;
   });
 });
